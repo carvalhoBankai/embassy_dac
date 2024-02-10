@@ -1,0 +1,26 @@
+[package]
+name = "test_embassy"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+#embassy-stm32 = {version = "0.1.0", features =  ["defmt", "time-driver-any", "stm32l475vg", "memory-x", "unstable-pac", "exti"]}
+#embassy-executor = { version = "0.3.3", features = ["nightly", "arch-cortex-m", "executor-thread", "defmt", "integrated-timers"] }
+#embassy-time = { version = "0.2", features = ["defmt", "defmt-timestamp-uptime", "tick-hz-32_768"] }
+defmt = "0.3.5"
+defmt-rtt = "0.4.0"
+cortex-m = {version = "0.7.7", features = ["critical-section-single-core"]}
+cortex-m-rt = "0.7.3"
+panic-probe = "0.3.1"
+heapless = { version = "0.8", default-features = false }
+#embassy-embedded-hal = { version = "0.1.0"}
+
+
+embassy-time = { git = "https://github.com/embassy-rs/embassy", rev = "be3c70d455e87422aff5e439401860a9ec85bf16",features = ["defmt", "defmt-timestamp-uptime", "tick-hz-32_768"] }
+embassy-executor = { git = "https://github.com/embassy-rs/embassy", rev = "be3c70d455e87422aff5e439401860a9ec85bf16",features = ["nightly", "arch-cortex-m", "executor-thread", "defmt", "integrated-timers"] }
+embassy-stm32 = { git = "https://github.com/embassy-rs/embassy", rev = "be3c70d455e87422aff5e439401860a9ec85bf16",features =  ["defmt", "time-driver-any", "stm32l475vg", "memory-x", "unstable-pac", "exti"] }
+embassy-embedded-hal = {git = "https://github.com/embassy-rs/embassy", rev = "be3c70d455e87422aff5e439401860a9ec85bf16"}
+
+[profile.release]
+debug = 2
